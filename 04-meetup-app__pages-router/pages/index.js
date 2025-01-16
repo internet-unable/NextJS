@@ -13,8 +13,8 @@ export default function HomePage(props) {
 export async function getStaticProps() {
     const client = await MongoClient.connect("mongodb+srv://polocatic:1234@cluster0.zfuql.mongodb.net/meetups?retryWrites=true&w=majority&appName=Cluster0");
     const db = client.db();
-    const meetupCollection = db.collection("meetups");
-    const meetups = await meetupCollection.find().toArray();
+    const meetupsCollection = db.collection("meetups");
+    const meetups = await meetupsCollection.find().toArray();
     
     client.close();
 
